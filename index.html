@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Dashboard</title>
+    <!-- Tailwind CSS CDN for modern styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+<body class="bg-gray-100 p-4 font-sans">
+    <div class="main-container">
+        <header class="header">
+            <h1 class="text-4xl font-bold text-gray-800">Crypto Prices</h1>
+            <p class="text-lg text-gray-600 mt-2">Live market data powered by CoinGecko</p>
+        </header>
+
+        <div class="container-box">
+            <div class="controls">
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search by name or symbol" class="search-input">
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+            </div>
+
+            <div id="statusMessage" class="status-message">Loading cryptocurrency data...</div>
+            
+            <div id="cryptoTable" class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>Name</th>
+                            <th>Price</th>
+                            <th>24h %</th>
+                            <th>Market Cap</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cryptoTableBody" class="table-body">
+                        <!-- Crypto data will be injected here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <div id="pagination" class="pagination-container">
+                <button id="prevPageBtn" class="pagination-button" disabled>Previous</button>
+                <span id="pageInfo" class="page-info"></span>
+                <button id="nextPageBtn" class="pagination-button">Next</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal for displaying coin details -->
+    <div id="coinDetailModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle" class="modal-title"></h3>
+                <button id="closeModalBtn" class="close-button">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div id="modalBody" class="modal-body">
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
